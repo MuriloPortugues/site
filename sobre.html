@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre - Sindicato dos Alunos e Colegas do IFTO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Aqui o Menu será carregado dinamicamente -->
+    <div id="menu"></div>
+
+    <main class="container mt-5">
+        <h1 class="text-center mb-4">Sobre o SINDIFTO</h1>
+        <p class="lead text-justify">
+            O Sindicato dos Alunos e Colegas do IFTO nasceu da vontade de transformar o cotidiano acadêmico e promover a união entre estudantes, professores e técnicos. A ideia surgiu com um grupo de alunos que queria melhorar as condições de ensino, criar mais espaços de convivência e fomentar a solidariedade entre os colegas.
+        </p>
+        <p class="lead text-justify">
+            Com ações que vão de campanhas de bem-estar a eventos culturais, o Sindicato conquistou rapidamente a confiança da comunidade acadêmica. Além de defender melhores condições estruturais, promoveu debates sobre saúde mental e iniciativas de inclusão, garantindo que todos se sentissem acolhidos.
+        </p>
+        <p class="lead text-justify">
+            O Sindicato se tornou um símbolo de união, força e transformação, criando um ambiente onde o saber é compartilhado, os desafios são enfrentados juntos e todos têm voz. Hoje, é um movimento essencial no IFTO, tornando o campus um lugar mais colaborativo e dinâmico para todos.
+        </p>
+    </main>
+
+    <!-- Aqui o Rodapé será carregado dinamicamente -->
+    <div id="rodape"></div>
+
+    <script>
+        // Função para carregar a paleta salva no localStorage
+        window.onload = function() {
+            var paleta = localStorage.getItem('paleta');
+            if (paleta) {
+                document.body.className = paleta;
+            } else {
+                document.body.className = 'paleta1';
+            }
+
+            // Carrega o menu e rodapé dinamicamente
+            carregarMenu();
+            carregarRodape();
+        }
+
+        // Função para carregar o menu dinamicamente
+        function carregarMenu() {
+            fetch('menu.html')
+                .then(response => response.text())
+                .then(data => document.getElementById('menu').innerHTML = data)
+                .catch(error => console.error('Erro ao carregar o menu:', error));
+        }
+
+        // Função para carregar o rodapé dinamicamente
+        function carregarRodape() {
+            fetch('rodape.html')
+                .then(response => response.text())
+                .then(data => document.getElementById('rodape').innerHTML = data)
+                .catch(error => console.error('Erro ao carregar o rodapé:', error));
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

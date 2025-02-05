@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SINDIFTO - Sindicato dos Alunos e Colegas do IFTO</title>
+    <!-- Link para o Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos para as imagens na lateral direita */
+        .side-images {
+            position: fixed;
+            top: 20%;
+            right: 0;
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .side-images img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Estilo da área principal para as imagens rotativas */
+        .main-image-container {
+            position: relative;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .main-image-container img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: none;
+        }
+
+        .main-image-container img.active {
+            display: block;
+        }
+
+        /* Estilos para as setas de navegação */
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 30px;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .arrow-left {
+            left: 10px;
+        }
+
+        .arrow-right {
+            right: 10px;
+        }
+
+        /* Responsividade para telas abaixo de 1200px */
+        @media (max-width: 1200px) {
+            .side-images {
+                flex-direction: column;
+                width: 100%;
+                position: relative;
+                top: 0;
+                right: 0;
+                margin-top: 20px;
+            }
+
+            .side-images img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        /* Para telas muito pequenas, abaixo de 600px */
+        @media (max-width: 600px) {
+            .side-images {
+                position: relative;
+                top: 0;
+                right: 0;
+                width: 100%;
+                margin-top: 20px;
+            }
+
+            .side-images img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Aqui o Menu será carregado dinamicamente -->
+    <div id="menu"></div>
+
+    <main class="container mt-5">
+        <h1>Bem-vindo ao Sindicato dos Alunos e Colegas do IFTO</h1>
+
+        <!-- Imagens principais com setas para navegação -->
+        <div class="main-image-container">
+            <button class="arrow arrow-left" onclick="showPreviousImage()">&#10094;</button>
+            <a href="jogosifto.html">
+                <img src="imagens/IFTOPrincipal.jpg" alt="Imagem 1" class="main-image active">
+            </a>
+            <a href="identidadeifto.html">
+                <img src="imagens/IFTOPrincipal2.jpg" alt="Imagem 2" class="main-image">
+            </a>
+            <button class="arrow arrow-right" onclick="showNextImage()">&#10095;</button>
+        </div>
+
+        <p>Aqui você encontra informações sobre os alunos e colegas do IFTO. Navegue pelo site e configure a aparência do seu jeito!</p>
+    </main>
+
+    <!-- Imagens laterais clicáveis -->
+    <div class="side-images">
+        <a href="sobre.html">
+            <img src="imagens/Sobreosite.jpg" alt="Imagem Sobre">
+        </a>
+        <a href="configuracao.html">
+            <img src="imagens/Paletadecores.jpg" alt="Imagem Configuração">
+        </a>
+        <a href="jogosifto.html">
+            <img src="imagens/JogosIFTO.jpg" alt="Nova Página 1">
+        </a>
+        <a href="identidadeifto.html">
+            <img src="imagens/RGIFTO.jpg" alt="Nova Página 2">
+        </a>
+    </div>
+
+    <!-- Aqui o Rodapé será carregado dinamicamente -->
+    <div id="rodape"></div>
+
+    <script>
+        // Função para carregar a paleta salva no localStorage
+        window.onload = function() {
+            var paleta = localStorage.getItem('paleta');
+            if (paleta) {
+                // Aplica a paleta salva
+                document.body.className = paleta;
+            } else {
+                // Caso não haja paleta salva, aplica a paleta padrão
+                document.body.className = 'paleta1';
+            }
+
+            // Carrega o menu e rodapé dinamicamente
+            carregarMenu();
+            carregarRodape();
+        }
+
+        // Função para carregar o menu dinamicamente
+        function carregarMenu() {
+            fetch('menu.html')
+                .then(response => response.text())
+                .then(data => document.getElementById('menu').innerHTML = data)
+                .catch(error => console.error('Erro ao carregar o menu:', error));
+        }
+
+        // Função para carregar o rodapé dinamicamente
+        function carregarRodape() {
+            fetch('rodape.html')
+                .then(response => response.text())
+                .then(data => document.getElementById('rodape').innerHTML = data)
+                .catch(error => console.error('Erro ao carregar o rodapé:', error));
+        }
+
+        // Script para alternar as imagens a cada 10 segundos
+        let currentImageIndex = 0;
+        const images = document.querySelectorAll('.main-image');
+
+        function showNextImage() {
+            images[currentImageIndex].classList.remove('active');
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            images[currentImageIndex].classList.add('active');
+        }
+
+        function showPreviousImage() {
+            images[currentImageIndex].classList.remove('active');
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            images[currentImageIndex].classList.add('active');
+        }
+
+        setInterval(showNextImage, 10000); // Alterna a imagem a cada 10 segundos
+        
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

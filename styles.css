@@ -1,0 +1,165 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+footer {
+    margin-top: 20px;
+}
+
+/* Efeito Neon no título */
+h1 {
+    font-size: 3rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 
+        0 0 5px #00FF00,   /* brilho verde */
+        0 0 10px #00FF00, 
+        0 0 20px #00FF00, 
+        0 0 40px #00FF00, 
+        0 0 80px #00FF00, 
+        0 0 120px #00FF00; /* brilho mais forte */
+    animation: neon-flicker 1.5s infinite alternate;
+}
+
+/* Animação de piscada do efeito Neon */
+@keyframes neon-flicker {
+    0% {
+        text-shadow: 
+            0 0 5px #00FF00, 
+            0 0 10px #00FF00, 
+            0 0 20px #00FF00, 
+            0 0 40px #00FF00, 
+            0 0 80px #00FF00, 
+            0 0 120px #00FF00;
+    }
+    50% {
+        text-shadow: 
+            0 0 5px #00FF00, 
+            0 0 10px #00FF00, 
+            0 0 20px #00FF00, 
+            0 0 40px #00FF00, 
+            0 0 80px #00FF00, 
+            0 0 120px #00FF00;
+    }
+    100% {
+        text-shadow: 
+            0 0 5px #00FF00, 
+            0 0 10px #00FF00, 
+            0 0 20px #00FF00, 
+            0 0 40px #00FF00, 
+            0 0 80px #00FF00, 
+            0 0 120px #00FF00;
+    }
+}
+
+/* Paletas predefinidas */
+body.paleta1 {
+    background-color: #e3f2fd; /* Azul Claro */
+    color: #0277bd;
+}
+
+body.paleta2 {
+    background-color: #c8e6c9; /* Verde Claro */
+    color: #388e3c;
+}
+
+body.paleta3 {
+    background-color: #ffcc80; /* Laranja */
+    color: #ff5722;
+}
+
+body.paleta4 {
+    background-color: #f3e5f5; /* Roxo */
+    color: #9c27b0;
+}
+
+body.paleta5 {
+    background-color: #e0e0e0; /* Cinza Claro */
+    color: #424242;
+}
+
+body.paleta6 {
+    background-color: #fff9c4; /* Amarelo Claro */
+    color: #f57f17;
+}
+
+body.paleta7 {
+    background-color: #303f9f; /* Azul Escuro */
+    color: #c5cae9;
+}
+
+body.paleta8 {
+    background-color: #ffebee; /* Vermelho Claro */
+    color: #d32f2f;
+}
+
+body.paleta9 {
+    background-color: #f5f5f5; /* Bege */
+    color: #616161;
+}
+
+body.paleta10 {
+    background-color: #388e3c; /* Verde Escuro */
+    color: #a5d6a7;
+}
+
+body.paleta11 {
+    background-color: #424242; /* Cinza Escuro */
+    color: #ffffff;
+}
+
+body.paleta12 {
+    background-color: #000000; /* Preto e Branco */
+    color: #ffffff;
+}
+
+/* Paleta Vermelho Forte */
+body.paleta13 {
+    background-color: #ff1744; /* Vermelho Forte */
+    color: #ffffff;
+}
+
+/* Paleta Roxo Escuro */
+body.paleta14 {
+    background-color: #6200ea; /* Roxo Escuro */
+    color: #ffffff;
+}
+
+/* Tema Claro */
+body.temaClaro {
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* Tema Escuro */
+body.temaEscuro {
+    background-color: #212121; /* Fundo escuro */
+    color: #f5f5f5; /* Texto claro */
+}
+
+/* Paleta personalizada */
+body.personalizada {
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* Responsividade para telas com largura inferior a 1200px */
+@media (max-width: 1200px) {
+    .navbar-nav {
+        text-align: center; /* Ajusta o alinhamento do menu */
+    }
+}
+
+/* Responsividade para telas com largura inferior a 600px (smartphones) */
+@media (max-width: 600px) {
+    body {
+        font-size: 14px; /* Ajusta o tamanho da fonte */
+    }
+
+    .navbar-nav {
+        flex-direction: column; /* Ajusta os itens do menu para a vertical */
+    }
+}

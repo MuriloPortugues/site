@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogos IFTO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Aqui o Menu será carregado dinamicamente -->
+    <div id="menu"></div>
+
+    <main class="container mt-5">
+        <h1 class="text-center mb-4">Jogos Estudantis no IFTO</h1>
+        <p class="lead text-justify">
+            O Sindicato dos Alunos e Colegas do IFTO, sempre dedicado a fortalecer a união entre estudantes, professores e técnicos, está promovendo um grande evento esportivo em 2025! Depois de um longo período de preparações, a expectativa é grande para os jogos que se aproximam, e todos estão convidados para fazer parte dessa história.
+        </p>
+        <p class="lead text-justify">
+            Em 13 de março de 2025, às 16h, começaremos a competição com as emocionantes disputas de futebol, vôlei e basquete. Cada jogo será uma oportunidade para mostrar talento, espírito de equipe e muita garra. Além disso, serão promovidas oficinas de esportes alternativos, como badminton e tênis de mesa, para quem quiser experimentar algo novo.
+        </p>
+        <p class="lead text-justify">
+            A história de 2025 começou com uma ideia simples, mas cheia de entusiasmo: realizar um evento onde todos os alunos pudessem se envolver, se divertir e, claro, competir de forma saudável. “Os Jogos IFTO 2025” terão uma grande cerimônia de abertura, com um desfile de todos os participantes e a presença de convidados especiais.
+        </p>
+        <p class="lead text-justify">
+            Em um cenário onde o esporte se tornou uma maneira de unir diferentes gerações e promover um ambiente de aprendizado, o Sindicato dos Alunos e Colegas do IFTO trabalha incansavelmente para garantir que todos possam vivenciar essa experiência inesquecível. Não perca! Participe e faça parte dessa festa esportiva.
+        </p>
+        <p class="lead text-justify">
+            A data está marcada e a adrenalina já está no ar: não deixe de se inscrever até 10 de março de 2025 e garantir sua vaga. Prepare-se para os jogos e venha fazer história com a gente!
+        </p>
+    </main>
+
+    <!-- Aqui o Rodapé será carregado dinamicamente -->
+    <div id="rodape"></div>
+
+    <script>
+        // Função para carregar a paleta salva no localStorage
+        window.onload = function() {
+            var paleta = localStorage.getItem('paleta');
+            if (paleta) {
+                document.body.className = paleta;
+            } else {
+                document.body.className = 'paleta1';
+            }
+
+            // Carrega o menu e rodapé dinamicamente
+            carregarMenu();
+            carregarRodape();
+        }
+
+        // Função para carregar o menu dinamicamente
+        function carregarMenu() {
+            fetch('menu.html')
+                .then(response => response.text())
+                .then(data => document.getElementById('menu').innerHTML = data)
+                .catch(error => console.error('Erro ao carregar o menu:', error));
+        }
+
+        // Função para carregar o rodapé dinamicamente
+        function carregarRodape() {
+            fetch('rodape.html')
+                .then(response => response.text())
+                .then(data => document.getElementById('rodape').innerHTML = data)
+                .catch(error => console.error('Erro ao carregar o rodapé:', error));
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
