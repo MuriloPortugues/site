@@ -14,12 +14,12 @@ h1 {
     font-size: 3rem;
     text-align: center;
     color: #fff;
-    text-shadow: 
+    text-shadow:
         0 0 5px #00FF00,   /* brilho verde */
-        0 0 10px #00FF00, 
-        0 0 20px #00FF00, 
-        0 0 40px #00FF00, 
-        0 0 80px #00FF00, 
+        0 0 10px #00FF00,
+        0 0 20px #00FF00,
+        0 0 40px #00FF00,
+        0 0 80px #00FF00,
         0 0 120px #00FF00; /* brilho mais forte */
     animation: neon-flicker 1.5s infinite alternate;
 }
@@ -27,30 +27,30 @@ h1 {
 /* Animação de piscada do efeito Neon */
 @keyframes neon-flicker {
     0% {
-        text-shadow: 
-            0 0 5px #00FF00, 
-            0 0 10px #00FF00, 
-            0 0 20px #00FF00, 
-            0 0 40px #00FF00, 
-            0 0 80px #00FF00, 
+        text-shadow:
+            0 0 5px #00FF00,
+            0 0 10px #00FF00,
+            0 0 20px #00FF00,
+            0 0 40px #00FF00,
+            0 0 80px #00FF00,
             0 0 120px #00FF00;
     }
     50% {
-        text-shadow: 
-            0 0 5px #00FF00, 
-            0 0 10px #00FF00, 
-            0 0 20px #00FF00, 
-            0 0 40px #00FF00, 
-            0 0 80px #00FF00, 
+        text-shadow:
+            0 0 5px #00FF00,
+            0 0 10px #00FF00,
+            0 0 20px #00FF00,
+            0 0 40px #00FF00,
+            0 0 80px #00FF00,
             0 0 120px #00FF00;
     }
     100% {
-        text-shadow: 
-            0 0 5px #00FF00, 
-            0 0 10px #00FF00, 
-            0 0 20px #00FF00, 
-            0 0 40px #00FF00, 
-            0 0 80px #00FF00, 
+        text-shadow:
+            0 0 5px #00FF00,
+            0 0 10px #00FF00,
+            0 0 20px #00FF00,
+            0 0 40px #00FF00,
+            0 0 80px #00FF00,
             0 0 120px #00FF00;
     }
 }
@@ -162,4 +162,12 @@ body.personalizada {
     .navbar-nav {
         flex-direction: column; /* Ajusta os itens do menu para a vertical */
     }
+}
+
+body.soma-fonte {
+    font-size: 18px;
+}
+
+body.reduz-fonte {
+    font-size: 14px;
 }

@@ -76,6 +76,30 @@
             carregarRodape();
         }
 
+        // Verifica o tamanho do texto salvo e aplica a todas as partes da página
+        var tamanhoTextoGlobal = localStorage.getItem('tamanhoTextoGlobal');
+        if (tamanhoTextoGlobal) {
+            document.body.style.fontSize = tamanhoTextoGlobal + 'px';
+            // Aplique também ao conteúdo de <main>
+            var mainContent = document.querySelector('main');
+            mainContent.style.fontSize = tamanhoTextoGlobal + 'px';
+        }
+
+        // Função para ajustar o tamanho do texto global
+
+        function ajustarTamanhoTexto(acao) {
+            var tamanhoAtual = parseInt(window.getComputedStyle(document.body).fontSize);
+            var novoTamanho = (acao === 'aumentar') ? tamanhoAtual + 2 : tamanhoAtual - 2;
+            document.body.style.fontSize = novoTamanho + 'px';
+
+            // Aplique o mesmo ajuste ao conteúdo de <main>
+            var mainContent = document.querySelector('main');
+            mainContent.style.fontSize = novoTamanho + 'px';
+
+            // Salva o novo tamanho de texto no localStorage para persistir a configuração
+            localStorage.setItem('tamanhoTextoGlobal', novoTamanho);
+        }
+
         // Função para carregar o menu dinamicamente
         function carregarMenu() {
             fetch('menu.html')
